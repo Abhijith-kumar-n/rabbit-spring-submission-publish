@@ -17,8 +17,32 @@ public class EmployeeController {
 
     @Autowired
     public RabbitTemplate rabbitTemplate;
-
+    @Autowired
+    public UserRepository userRepository;
     @GetMapping("/")
+    public String login(){
+        return "loginform";
+    }
+    @PostMapping("/login_validate")
+    public String validate_login(@RequestParam("username") String username,
+                                 @RequestParam("password") String password,
+                                 ModelMap map){
+
+        List<User> user=userRepository.findByUsername(username);
+        if (user.size()==0){
+            return "loginfailed";
+        }
+        else {
+            if (user.get(0).getPassword().equals(password)) {
+                System.out.println("Logged In as User "+username);
+                return "Submission";
+            } else {
+                return "loginfailed";
+            }
+        }
+    }
+
+    @GetMapping("/submit")
     public String GetSubmissionform(){
         return "Submission";
     }

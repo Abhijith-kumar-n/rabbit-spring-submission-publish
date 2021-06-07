@@ -8,7 +8,7 @@
     <title>User Registration Form</title>
 </head>
 <body>
-<form method="get" action="/">
+<form method="get" action="/submit">
     <h1>ADDED....!!!!!!!!!!</h1><br>
     <h2>Details Recevied:</h2>
     <h3>Employee ID : ${id} </h3>

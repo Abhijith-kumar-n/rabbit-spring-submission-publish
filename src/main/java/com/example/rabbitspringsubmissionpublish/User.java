@@ -1,18 +1,24 @@
 package com.example.rabbitspringsubmissionpublish;
 
 
+
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.data.annotation.Id;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.Table;
 
 @Entity
 public class User {
     @Id
     @GeneratedValue
+    @Column(name="id")
     private Long id;
+    @Column(name = "username")
     private String username;
+    @Column(name="password")
     private String password;
 
 
