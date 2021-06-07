@@ -10,10 +10,10 @@
 <body>
     <h1>Please Add Employee Details......!!!</h1>
     <form method="post" action="Add">
-        Employee ID :<input type=number value="Id"/><br/>
-        Employee Name :<input type="text" value="EmpName"/><br/>
-        Employee Department :<input type="text" value="EmpDept"/><br/>
-        Employee Blood Group :<input type="text" value="EmpBGrp"/><br/>
+        Employee ID :<input type=number name="id"/><br/>
+        Employee Name :<input type="text" name="EmpName"/><br/>
+        Employee Department :<input type="text" name="EmpDept"/><br/>
+        Employee Blood Group :<input type="text" name="EmpBGrp"/><br/>
         <input type="submit" value="OK">
     </form>
 </body>

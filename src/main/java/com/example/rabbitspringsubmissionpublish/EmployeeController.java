@@ -3,26 +3,27 @@ package com.example.rabbitspringsubmissionpublish;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class EmployeeController {
-    /*@GetMapping("/")
-    public String GetSubmissionform(){
-        return "Submission";
-    }*/
     @GetMapping("/")
-    public String showForm(Model model) {
-        Employee emp = new Employee();
-        //List<String> professionList = Arrays.asList("Developer", "Designer", "Tester");
-
-        model.addAttribute("emp", emp);
-        //model.addAttribute("professionList", professionList);
-
+    public String GetSubmissionform(){
         return "Submission";
     }
     @PostMapping("Add")
-    public String SubmitForm(@ModelAttribute("emp") Employee emp){
+    public String SubmitForm(@RequestParam("id") int id,
+                             @RequestParam("EmpName") String EmpName,
+                             @RequestParam("EmpDept") String EmpDept,
+                             @RequestParam("EmpBGrp") String EmpBGrp,
+                             ModelMap map){
+
+        Employee emp=new Employee();
+        emp.setId(id);
+        emp.setEmpName(EmpName);
+        emp.setEmpDept(EmpDept);
+        emp.setEmpBGrp(EmpBGrp);
         System.out.println(emp);
         return "Addedform";
     }

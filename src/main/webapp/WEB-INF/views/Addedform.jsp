@@ -8,6 +8,14 @@
     <title>User Registration Form</title>
 </head>
 <body>
-<h1>Please Add Employee Details......!!!</h1>
+<form method="get" action="">
+    <h1>ADDED....!!!!!!!!!!</h1><br>
+    <h2>Details Recevied:</h2>
+    <h3>Employee ID : ${id} </h3>
+    <h3>Employee Name : ${EmpName}</h3>
+    <h3>Employee Dept : ${EmpDept}</h3>
+    <h3>Employee BGrp : ${EmpBGrp}</h3>
+    <input type="submit" name="Ok" value="submit">
+</form>
 </body>
 </html>
