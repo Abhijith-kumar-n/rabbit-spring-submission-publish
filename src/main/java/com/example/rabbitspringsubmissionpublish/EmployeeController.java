@@ -18,7 +18,10 @@ public class EmployeeController {
                              @RequestParam("EmpDept") String EmpDept,
                              @RequestParam("EmpBGrp") String EmpBGrp,
                              ModelMap map){
-
+        map.put("id",id);
+        map.put("EmpName",EmpName);
+        map.put("EmpDept",EmpDept);
+        map.put("EmpBGrp",EmpBGrp);
         Employee emp=new Employee();
         emp.setId(id);
         emp.setEmpName(EmpName);
