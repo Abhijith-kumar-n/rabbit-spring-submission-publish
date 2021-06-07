@@ -1,6 +1,9 @@
 package com.example.rabbitspringsubmissionpublish;
 
 
+import com.example.rabbitspringsubmissionpublish.configuration.rabbitconfiguration;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -8,6 +11,10 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class EmployeeController {
+
+    @Autowired
+    public RabbitTemplate rabbitTemplate;
+
     @GetMapping("/")
     public String GetSubmissionform(){
         return "Submission";
@@ -28,6 +35,7 @@ public class EmployeeController {
         emp.setEmpDept(EmpDept);
         emp.setEmpBGrp(EmpBGrp);
         System.out.println(emp);
+        rabbitTemplate.convertAndSend(rabbitconfiguration.EXCHANGE,rabbitconfiguration.ROUTINGKEY,emp);
         return "Addedform";
     }
 }
