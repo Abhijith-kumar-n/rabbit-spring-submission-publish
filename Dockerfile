@@ -5,5 +5,5 @@ COPY pom.xml .
 COPY src src
 RUN mvn -DskipTests=true  package
 WORKDIR /workspace/app/target
-RUN mv *.jar publish.jar
-CMD ["java","-jar","publish.jar"]
+RUN mv *.war publish.war
+CMD ["java","-jar","publish.war"]
