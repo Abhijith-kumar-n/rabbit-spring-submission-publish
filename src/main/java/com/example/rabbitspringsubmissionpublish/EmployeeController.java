@@ -54,7 +54,9 @@ public class EmployeeController {
     public String Addtomydb(@RequestParam("username") String username,@RequestParam("password") String password,ModelMap map){
         User user=new User();
         Random rnd=new Random();
-        user.setId(rnd.nextInt(100));
+        List<User> allusers=userRepository.findAll();
+        int sizeofusers=allusers.size();
+        user.setId(sizeofusers+1);
         user.setUsername(username);
         user.setPassword(password);
         userRepository.save(user);
