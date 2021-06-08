@@ -11,6 +11,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Random;
 
 @Controller
 public class EmployeeController {
@@ -19,10 +20,12 @@ public class EmployeeController {
     public RabbitTemplate rabbitTemplate;
     @Autowired
     public UserRepository userRepository;
+
     @GetMapping("/")
     public String login(){
         return "loginform";
     }
+
     @PostMapping("/login_validate")
     public String validate_login(@RequestParam("username") String username,
                                  @RequestParam("password") String password,
@@ -42,10 +45,27 @@ public class EmployeeController {
         }
     }
 
+    @GetMapping("/register_page")
+    public String register_a(){
+        return "register";
+    }
+
+    @PostMapping("/register")
+    public String Addtomydb(@RequestParam("username") String username,@RequestParam("password") String password,ModelMap map){
+        User user=new User();
+        Random rnd=new Random();
+        user.setId(rnd.nextInt(100));
+        user.setUsername(username);
+        user.setPassword(password);
+        userRepository.save(user);
+        return "loginform";
+    }
+
     @GetMapping("/submit")
     public String GetSubmissionform(){
         return "Submission";
     }
+
     @PostMapping("Add")
     public String SubmitForm(@RequestParam("id") int id,
                              @RequestParam("EmpName") String EmpName,

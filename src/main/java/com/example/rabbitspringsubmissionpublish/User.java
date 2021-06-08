@@ -15,7 +15,7 @@ public class User {
     @Id
     @GeneratedValue
     @Column(name="id")
-    private Long id;
+    private int id;
     @Column(name = "username")
     private String username;
     @Column(name="password")
@@ -46,12 +46,12 @@ public class User {
                 '}';
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
     @javax.persistence.Id
-    public Long getId() {
+    public int getId() {
         return id;
     }
 }

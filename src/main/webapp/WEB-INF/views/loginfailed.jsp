@@ -15,6 +15,7 @@
     <form method="post" action="/login_validate">
         <snap>Username: </snap><snap><input type="text" name="username"/> </snap><br/>
         <snap>Password : </snap><snap><input type="password" name="password"/> </snap><br/>
+        <snap>Do You want to join us??</snap><a href="/register_page" >Register!! </a ><br/>
         <input type="submit" name="Login">
     </form>
 </body>
