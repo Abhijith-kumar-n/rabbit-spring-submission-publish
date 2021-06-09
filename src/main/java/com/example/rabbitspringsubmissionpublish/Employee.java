@@ -1,5 +1,6 @@
 package com.example.rabbitspringsubmissionpublish;
 
+
 public class Employee {
     private int id;
     private String EmpName;
